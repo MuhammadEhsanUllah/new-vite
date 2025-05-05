@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "wouter";
-
+// import { Link } from "wouter";
+import { useNavigate } from "react-router-dom";
 interface Product {
   id: number;
   name: string;
@@ -57,6 +57,7 @@ export default function ProductGallery() {
     },
   ];
 
+  const navigate = useNavigate();
   // Filter products by category
   const filteredProducts =
     activeCategory === "All Gates"
@@ -149,9 +150,7 @@ export default function ProductGallery() {
         </div>
 
         <div className="text-center mt-12">
-          <Link href="/gates">
-            <Button>View All Designs</Button>
-          </Link>
+          <Button onClick={() => navigate("/gates")}>View All Designs</Button>
         </div>
       </div>
     </section>
